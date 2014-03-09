@@ -21,6 +21,7 @@
 		50573E4818CC425000173B31 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50573E2A18CC425000173B31 /* UIKit.framework */; };
 		50573E5018CC425000173B31 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50573E4E18CC425000173B31 /* InfoPlist.strings */; };
 		50573E5218CC425000173B31 /* ZXPanScrollView2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50573E5118CC425000173B31 /* ZXPanScrollView2Tests.m */; };
+		50573E5D18CC427200173B31 /* ZXPanScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50573E5C18CC427200173B31 /* ZXPanScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		50573E4D18CC425000173B31 /* ZXPanScrollView2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZXPanScrollView2Tests-Info.plist"; sourceTree = "<group>"; };
 		50573E4F18CC425000173B31 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		50573E5118CC425000173B31 /* ZXPanScrollView2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZXPanScrollView2Tests.m; sourceTree = "<group>"; };
+		50573E5B18CC427200173B31 /* ZXPanScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXPanScrollView.h; sourceTree = "<group>"; };
+		50573E5C18CC427200173B31 /* ZXPanScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXPanScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,8 @@
 			children = (
 				50573E3518CC425000173B31 /* AppDelegate.h */,
 				50573E3618CC425000173B31 /* AppDelegate.m */,
+				50573E5B18CC427200173B31 /* ZXPanScrollView.h */,
+				50573E5C18CC427200173B31 /* ZXPanScrollView.m */,
 				50573E3818CC425000173B31 /* Main.storyboard */,
 				50573E3B18CC425000173B31 /* ViewController.h */,
 				50573E3C18CC425000173B31 /* ViewController.m */,
@@ -252,6 +257,7 @@
 				50573E3D18CC425000173B31 /* ViewController.m in Sources */,
 				50573E3718CC425000173B31 /* AppDelegate.m in Sources */,
 				50573E3318CC425000173B31 /* main.m in Sources */,
+				50573E5D18CC427200173B31 /* ZXPanScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
