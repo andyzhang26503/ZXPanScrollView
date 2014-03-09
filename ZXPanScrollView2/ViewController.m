@@ -20,7 +20,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     _panScrollView = [[ZXPanScrollView alloc] initWithFrame:self.view.frame];
-    //[_panScrollView registerCellClass: [UITableViewCell class]];
+    [_panScrollView registerCellClass: [UITableViewCell class]];
     _panScrollView.dataSource = self;
     [self.view addSubview:_panScrollView];
 }
@@ -33,7 +33,7 @@
 
 - (NSInteger)numberOfViews
 {
-    return 100;
+    return 20;
 }
 
 - (UIView *)panScrollView:(ZXPanScrollView *)panScrollView cellAtIndex:(NSInteger)index

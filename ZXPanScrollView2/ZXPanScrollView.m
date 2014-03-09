@@ -86,7 +86,8 @@
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     NSArray *scrollViewSubviews = [self scrollViewSubviews];
     for (UIView *view in scrollViewSubviews) {
-        if (view.frame.origin.x>self.scrollView.contentOffset.x&&view.frame.origin.x<self.scrollView.contentOffset.x+screenSize.width) {
+        //if (view.frame.origin.x>self.scrollView.contentOffset.x&&view.frame.origin.x<self.scrollView.contentOffset.x+screenSize.width) {
+        if (view.frame.origin.x == screenSize.width*index) {
             return view;
         }
     }
@@ -97,7 +98,7 @@
 {
     NSMutableArray *subviews = [NSMutableArray array];
     for (id v in self.scrollView.subviews) {
-        if ([v isKindOfClass:[UIView class]]) {
+        if ([v isKindOfClass:[_cellClass class]]) {
             [subviews addObject:v];
         }
     }
@@ -107,6 +108,7 @@
 - (void)recycleCell:(UIView *)view
 {
     [view removeFromSuperview];
+    NSLog(@"recyclCell");
     [self.reusableViewSet addObject:view];
 }
 
@@ -116,7 +118,8 @@
     if (view) {
         [self.reusableViewSet removeObject:view];
     }else{
-        view = [[UIView alloc] init];
+        NSLog(@"cell class alloc");
+        view = [[_cellClass alloc] init];
     }
     return view;
 }
