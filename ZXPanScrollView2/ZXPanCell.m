@@ -17,6 +17,7 @@
         // Initialization code
         self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         self.webView.backgroundColor = [UIColor greenColor];
+        self.webView.scrollView.bounces = NO;
         [self addSubview:self.webView];
     }
     return self;

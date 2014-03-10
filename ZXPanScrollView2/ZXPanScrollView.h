@@ -21,4 +21,6 @@
 
 - (UIView *)dequeReusableCell;
 - (void)registerCellClass:(Class)cclass;
+
+- (void)reloadPanScrollView;
 @end

@@ -23,9 +23,10 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        _scrollView = [[UIScrollView alloc] initWithFrame:frame];
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         _scrollView.pagingEnabled = YES;
         _scrollView.delegate = self;
+        _scrollView.bounces = NO;
         
         self.reusableViewSet = [NSMutableSet set];
         
@@ -51,6 +52,11 @@
     [self refreshPanScrollView];
 }
 
+- (void)reloadPanScrollView
+{
+    [self refreshPanScrollView];
+}
+
 - (void)refreshPanScrollView
 {
     NSInteger cellCount = [self.dataSource numberOfViews];
@@ -70,13 +76,13 @@
     }];
     for (int i=bottomIndex; i<=upperIndex; i++) {
         if ([self cellAtIndex:i]) {
-            NSLog(@"self cellAtIndex in!! i==%d",i);
+            //NSLog(@"self cellAtIndex in!! i==%d",i);
         }else{
             UIView *cellView = [self.dataSource panScrollView:self cellAtIndex:i];
             cellView.frame = CGRectMake(i*screenSize.width, 0, screenSize.width, screenSize.height);
             [self.scrollView addSubview:cellView];
             
-            NSLog(@"add subview in!! i==%d",i);
+            //NSLog(@"add subview in!! i==%d",i);
         }
     }
 }
@@ -108,7 +114,7 @@
 - (void)recycleCell:(UIView *)view
 {
     [view removeFromSuperview];
-    NSLog(@"recyclCell");
+    //NSLog(@"recyclCell");
     [self.reusableViewSet addObject:view];
 }
 
@@ -118,7 +124,7 @@
     if (view) {
         [self.reusableViewSet removeObject:view];
     }else{
-        NSLog(@"cell class alloc");
+        //NSLog(@"cell class alloc");
         view = [[_cellClass alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     }
     return view;
