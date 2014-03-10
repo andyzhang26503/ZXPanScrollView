@@ -57,8 +57,8 @@
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     self.scrollView.contentSize = CGSizeMake(screenSize.width*cellCount, screenSize.height);
     
-    NSInteger upperIndex = ceilf(self.scrollView.contentOffset.x/screenSize.width);
-    NSInteger bottomIndex = floorf(self.scrollView.contentOffset.x/screenSize.width);
+    NSInteger upperIndex = MIN(ceilf(self.scrollView.contentOffset.x/screenSize.width), cellCount-1);
+    NSInteger bottomIndex = MAX(floorf(self.scrollView.contentOffset.x/screenSize.width), 0);
     
     NSArray *scrollViewSubviews = [self scrollViewSubviews];
     [scrollViewSubviews enumerateObjectsUsingBlock:^(UIView *view,NSUInteger idx,BOOL *stop){
@@ -68,7 +68,7 @@
             [self recycleCell:view];
         }
     }];
-    for (int i=bottomIndex; i<upperIndex+1; i++) {
+    for (int i=bottomIndex; i<=upperIndex; i++) {
         if ([self cellAtIndex:i]) {
             NSLog(@"self cellAtIndex in!! i==%d",i);
         }else{
@@ -119,7 +119,7 @@
         [self.reusableViewSet removeObject:view];
     }else{
         NSLog(@"cell class alloc");
-        view = [[_cellClass alloc] init];
+        view = [[_cellClass alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     }
     return view;
 }

@@ -22,6 +22,8 @@
 		50573E5018CC425000173B31 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50573E4E18CC425000173B31 /* InfoPlist.strings */; };
 		50573E5218CC425000173B31 /* ZXPanScrollView2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50573E5118CC425000173B31 /* ZXPanScrollView2Tests.m */; };
 		50573E5D18CC427200173B31 /* ZXPanScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50573E5C18CC427200173B31 /* ZXPanScrollView.m */; };
+		505AB8E818CD92EC00838A4D /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505AB8E718CD92EC00838A4D /* Reveal.framework */; };
+		505AB8ED18CD9DB000838A4D /* ZXPanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 505AB8EC18CD9DB000838A4D /* ZXPanCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,9 @@
 		50573E5118CC425000173B31 /* ZXPanScrollView2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZXPanScrollView2Tests.m; sourceTree = "<group>"; };
 		50573E5B18CC427200173B31 /* ZXPanScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXPanScrollView.h; sourceTree = "<group>"; };
 		50573E5C18CC427200173B31 /* ZXPanScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXPanScrollView.m; sourceTree = "<group>"; };
+		505AB8E718CD92EC00838A4D /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		505AB8EB18CD9DB000838A4D /* ZXPanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXPanCell.h; sourceTree = "<group>"; };
+		505AB8EC18CD9DB000838A4D /* ZXPanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXPanCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +71,7 @@
 				50573E2918CC425000173B31 /* CoreGraphics.framework in Frameworks */,
 				50573E2B18CC425000173B31 /* UIKit.framework in Frameworks */,
 				50573E2718CC425000173B31 /* Foundation.framework in Frameworks */,
+				505AB8E818CD92EC00838A4D /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,9 +125,12 @@
 				50573E3618CC425000173B31 /* AppDelegate.m */,
 				50573E5B18CC427200173B31 /* ZXPanScrollView.h */,
 				50573E5C18CC427200173B31 /* ZXPanScrollView.m */,
+				505AB8EB18CD9DB000838A4D /* ZXPanCell.h */,
+				505AB8EC18CD9DB000838A4D /* ZXPanCell.m */,
 				50573E3818CC425000173B31 /* Main.storyboard */,
 				50573E3B18CC425000173B31 /* ViewController.h */,
 				50573E3C18CC425000173B31 /* ViewController.m */,
+				505AB8E718CD92EC00838A4D /* Reveal.framework */,
 				50573E3E18CC425000173B31 /* Images.xcassets */,
 				50573E2D18CC425000173B31 /* Supporting Files */,
 			);
@@ -258,6 +267,7 @@
 				50573E3718CC425000173B31 /* AppDelegate.m in Sources */,
 				50573E3318CC425000173B31 /* main.m in Sources */,
 				50573E5D18CC427200173B31 /* ZXPanScrollView.m in Sources */,
+				505AB8ED18CD9DB000838A4D /* ZXPanCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +352,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					Reveal,
+				);
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -374,6 +389,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					Reveal,
+				);
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -384,6 +404,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/andyzhang/Dropbox/ios\\ tutorial\\ starter\\ code/ZXPanScrollView2/ZXPanScrollView2",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZXPanScrollView2/ZXPanScrollView2-Prefix.pch";
 				INFOPLIST_FILE = "ZXPanScrollView2/ZXPanScrollView2-Info.plist";
@@ -397,6 +421,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/andyzhang/Dropbox/ios\\ tutorial\\ starter\\ code/ZXPanScrollView2/ZXPanScrollView2",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZXPanScrollView2/ZXPanScrollView2-Prefix.pch";
 				INFOPLIST_FILE = "ZXPanScrollView2/ZXPanScrollView2-Info.plist";
@@ -466,6 +494,7 @@
 				50573E5718CC425000173B31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		50573E5818CC425000173B31 /* Build configuration list for PBXNativeTarget "ZXPanScrollView2Tests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +503,7 @@
 				50573E5A18CC425000173B31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

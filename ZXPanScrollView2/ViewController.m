@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ZXPanScrollView.h"
+#import "ZXPanCell.h"
 
 @interface ViewController ()<ZXPanScrollViewDataSource>
 @property (nonatomic,strong) ZXPanScrollView *panScrollView;
@@ -19,9 +20,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    _panScrollView = [[ZXPanScrollView alloc] initWithFrame:self.view.frame];
-    [_panScrollView registerCellClass: [UITableViewCell class]];
+    _panScrollView = [[ZXPanScrollView alloc] initWithFrame:CGRectMake(0, 30, 320, 568)];
+    [_panScrollView registerCellClass: [ZXPanCell class]];
     _panScrollView.dataSource = self;
+    _panScrollView.backgroundColor = [UIColor redColor];
     [self.view addSubview:_panScrollView];
 }
 
@@ -38,12 +40,16 @@
 
 - (UIView *)panScrollView:(ZXPanScrollView *)panScrollView cellAtIndex:(NSInteger)index
 {
-    UIView *cell = [panScrollView dequeReusableCell];
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-    [webView setBackgroundColor:[UIColor grayColor]];
+    ZXPanCell *cell = (ZXPanCell *)[panScrollView dequeReusableCell];
+//    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    [cell.webView setBackgroundColor:[UIColor grayColor]];
     NSString *s = [NSString stringWithFormat:@"对不起，内容已被删除。 %d",index];
-    [webView loadHTMLString:s baseURL:nil];
-    [cell addSubview:webView];
+    [cell.webView loadHTMLString:s baseURL:nil];
+    
+//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 300, 100)];
+//    NSLog(@"label alloc!!!!!!!");
+//    label.text = [NSString stringWithFormat:@"对不起，内容已被删除。 %d",index];
+//    [cell addSubview:label];
 
     return  cell;
 }
