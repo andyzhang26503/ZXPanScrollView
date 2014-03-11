@@ -14,6 +14,8 @@
 }
 @property (nonatomic,strong) UIScrollView *scrollView;
 @property (nonatomic,strong) NSMutableSet *reusableViewSet;
+
+@property (nonatomic,assign) CGFloat nextIndex;
 @end
 
 @implementation ZXPanScrollView
@@ -27,6 +29,7 @@
         _scrollView.pagingEnabled = YES;
         _scrollView.delegate = self;
         _scrollView.bounces = NO;
+        //_scrollView.showsHorizontalScrollIndicator = NO;
         
         self.reusableViewSet = [NSMutableSet set];
         
@@ -37,7 +40,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    [self setNeedsLayout];
+    [self refreshPanScrollView];
 }
 
 - (void)setDataSource:(id<ZXPanScrollViewDataSource>)dataSource
@@ -54,6 +57,7 @@
 
 - (void)reloadPanScrollView
 {
+    //[[self scrollViewSubviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self refreshPanScrollView];
 }
 
@@ -61,7 +65,7 @@
 {
     NSInteger cellCount = [self.dataSource numberOfViews];
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
-    self.scrollView.contentSize = CGSizeMake(screenSize.width*cellCount, screenSize.height);
+    self.scrollView.contentSize = CGSizeMake(screenSize.width*cellCount, 0);
     
     NSInteger upperIndex = MIN(ceilf(self.scrollView.contentOffset.x/screenSize.width), cellCount-1);
     NSInteger bottomIndex = MAX(floorf(self.scrollView.contentOffset.x/screenSize.width), 0);

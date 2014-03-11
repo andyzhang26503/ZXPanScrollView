@@ -11,4 +11,6 @@
 @interface ZXPanCell : UIView
 
 @property (nonatomic,strong) UIWebView *webView;
+
+- (void)configCellForIndex:(NSInteger)index detailURL:(NSString *)url;
 @end

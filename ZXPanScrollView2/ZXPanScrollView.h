@@ -13,6 +13,8 @@
 
 - (NSInteger)numberOfViews;
 - (UIView *)panScrollView:(ZXPanScrollView *)panScrollView cellAtIndex:(NSInteger)index;
+//- (void)panScrollViewDidScrollToIndex:(NSInteger)index;
+//- (void)panScrollViewWillScrollToIndex:(NSInteger)index;
 
 @end
 
