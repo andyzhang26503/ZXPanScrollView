@@ -80,13 +80,10 @@
     }];
     for (int i=bottomIndex; i<=upperIndex; i++) {
         if ([self cellAtIndex:i]) {
-            //NSLog(@"self cellAtIndex in!! i==%d",i);
         }else{
             UIView *cellView = [self.dataSource panScrollView:self cellAtIndex:i];
             cellView.frame = CGRectMake(i*screenSize.width, 0, screenSize.width, screenSize.height);
             [self.scrollView addSubview:cellView];
-            
-            //NSLog(@"add subview in!! i==%d",i);
         }
     }
 }
@@ -118,7 +115,6 @@
 - (void)recycleCell:(UIView *)view
 {
     [view removeFromSuperview];
-    //NSLog(@"recyclCell");
     [self.reusableViewSet addObject:view];
 }
 
@@ -128,7 +124,6 @@
     if (view) {
         [self.reusableViewSet removeObject:view];
     }else{
-        //NSLog(@"cell class alloc");
         view = [[_cellClass alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     }
     return view;
@@ -139,13 +134,11 @@
     _cellClass = cclass;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void)scrollToIndex:(NSInteger)index
 {
-    // Drawing code
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    //[self.scrollView scrollRectToVisible:CGRectMake(screenSize.width*index, 0, screenSize.width, screenSize.height-20) animated:YES];
+    [self.scrollView setContentOffset:CGPointMake(screenSize.width*index, 0) animated:YES];
 }
-*/
 
 @end

@@ -30,7 +30,8 @@
     [self.view addSubview:_panScrollView];
     
     self.urlArray = @[@"http://www.sporttery.cn/cache/archives/4/874/93874.arc",@"http://www.sporttery.cn/cache/archives/3/873/93873.arc",@"http://www.sporttery.cn/cache/archives/2/872/93872.arc",@"http://www.sporttery.cn/cache/archives/0/870/93870.arc",@"http://www.sporttery.cn/cache/archives/7/137/91137.arc",@"http://www.sporttery.cn/cache/archives/4/134/91134.arc",@"http://www.sporttery.cn/cache/archives/8/128/91128.arc",@"http://www.sporttery.cn/cache/archives/1/91/91091.arc",@"http://www.sporttery.cn/cache/archives/0/90/91090.arc",@"http://www.sporttery.cn/cache/archives/4/74/91074.arc"];
-    //[self webViewString];
+    
+    [_panScrollView scrollToIndex:1];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,9 +48,6 @@
 - (UIView *)panScrollView:(ZXPanScrollView *)panScrollView cellAtIndex:(NSInteger)index
 {
     ZXPanCell *cell = (ZXPanCell *)[panScrollView dequeReusableCell];
-//    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-    //self.currentWebHtml = [NSString stringWithFormat:@"对不起，内容已被删除。 %d",index];
-    //[cell.webView loadHTMLString:self.currentWebHtml baseURL:nil];
     [cell configCellForIndex:index detailURL:self.urlArray[index]];
 
     return  cell;
