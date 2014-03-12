@@ -29,10 +29,9 @@
         _scrollView.pagingEnabled = YES;
         _scrollView.delegate = self;
         _scrollView.bounces = NO;
-        //_scrollView.showsHorizontalScrollIndicator = NO;
-        
-        self.reusableViewSet = [NSMutableSet set];
-        
+        _scrollView.showsHorizontalScrollIndicator = NO;
+
+        self.reusableViewSet = [NSMutableSet set];        
         [self addSubview:_scrollView];
     }
     return self;

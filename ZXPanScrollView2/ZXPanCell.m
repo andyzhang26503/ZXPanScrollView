@@ -9,7 +9,6 @@
 #import "ZXPanCell.h"
 
 @interface ZXPanCell ()<UIWebViewDelegate>
-@property (nonatomic,assign) NSInteger linkCount;
 @end
 
 @implementation ZXPanCell
@@ -22,7 +21,7 @@
         self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         self.webView.backgroundColor = UIColorFromHex(0xefece3);
         //self.webView.scrollView.bounces = NO;
-        self.webView.scrollView.showsVerticalScrollIndicator = NO;
+        //self.webView.scrollView.showsVerticalScrollIndicator = NO;
         self.webView.delegate = self;
         [self addSubview:self.webView];
     }
@@ -31,8 +30,6 @@
 
 - (void)configCellForIndex:(NSInteger)index detailURL:(NSString *)url
 {
-    //[self.webView reload];
-    self.linkCount=0;
     [self loadInfoDetailAtIndex:url];
 }
 
@@ -72,15 +69,6 @@
 {
     NSString *cleanedString = [oldString stringByReplacingOccurrencesOfString:@"\\" withString:@""];
     return cleanedString;
-}
-
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-{
-    return self.linkCount<=1?YES:NO;
-}
-- (void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    self.linkCount ++;
 }
 
 /*

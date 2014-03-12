@@ -120,16 +120,14 @@
 		50573E2C18CC425000173B31 /* ZXPanScrollView2 */ = {
 			isa = PBXGroup;
 			children = (
+				50A9332F18CFF71B00C64622 /* ZXPanScrollView */,
 				50573E3518CC425000173B31 /* AppDelegate.h */,
 				50573E3618CC425000173B31 /* AppDelegate.m */,
-				50573E5B18CC427200173B31 /* ZXPanScrollView.h */,
-				50573E5C18CC427200173B31 /* ZXPanScrollView.m */,
 				505AB8EB18CD9DB000838A4D /* ZXPanCell.h */,
 				505AB8EC18CD9DB000838A4D /* ZXPanCell.m */,
-				50573E3818CC425000173B31 /* Main.storyboard */,
 				50573E3B18CC425000173B31 /* ViewController.h */,
 				50573E3C18CC425000173B31 /* ViewController.m */,
-				5058F40018CEE594004E7140 /* InformationDetail.html */,
+				50573E3818CC425000173B31 /* Main.storyboard */,
 				50573E3E18CC425000173B31 /* Images.xcassets */,
 				50573E2D18CC425000173B31 /* Supporting Files */,
 			);
@@ -139,6 +137,7 @@
 		50573E2D18CC425000173B31 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5058F40018CEE594004E7140 /* InformationDetail.html */,
 				50573E2E18CC425000173B31 /* ZXPanScrollView2-Info.plist */,
 				50573E2F18CC425000173B31 /* InfoPlist.strings */,
 				50573E3218CC425000173B31 /* main.m */,
@@ -163,6 +162,15 @@
 				50573E4E18CC425000173B31 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		50A9332F18CFF71B00C64622 /* ZXPanScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				50573E5B18CC427200173B31 /* ZXPanScrollView.h */,
+				50573E5C18CC427200173B31 /* ZXPanScrollView.m */,
+			);
+			name = ZXPanScrollView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
